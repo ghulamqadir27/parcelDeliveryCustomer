@@ -313,6 +313,7 @@ import {
   Image,
   ScrollView,
   FlatList,
+  TextInput,
   StyleSheet,
 } from 'react-native';
 import {mvs} from 'config/metrices';
@@ -320,6 +321,7 @@ import {colors} from 'config/colors';
 import * as IMG from 'assets/images';
 import {Row} from 'components/atoms/row';
 import Bold from 'typography/bold-text';
+import Ionicons  from 'react-native-vector-icons/Ionicons';
 import Medium from 'typography/medium-text';
 import Regular from 'typography/regular-text';
 import {navigate} from 'navigation/navigation-ref';
@@ -371,25 +373,25 @@ const HomeTab = () => {
   );
 
   // ✅ Define tabs dynamically based on orderStatus
-  const tabs = useMemo(() => {
-    const statuses = [
-      'New Orders',
-      'Accepted',
-      'Ongoing',
-      'Completed',
-      'Failed',
-    ];
-    return statuses.map(label => ({
-      label,
-      count: orders.filter(o => o.orderStatus === label).length,
-    }));
-  }, [orders]);
+  // const tabs = useMemo(() => {
+  //   const statuses = [
+  //     'New Orders',
+  //     'Accepted',
+  //     'Ongoing',
+  //     'Completed',
+  //     'Failed',
+  //   ];
+  //   return statuses.map(label => ({
+  //     label,
+  //     count: orders.filter(o => o.orderStatus === label).length,
+  //   }));
+  // }, [orders]);
 
   // ✅ Filter orders based on selected tab
-  const filteredOrders = useMemo(
-    () => orders.filter(o => o.orderStatus === selectedTab),
-    [orders, selectedTab],
-  );
+  // const filteredOrders = useMemo(
+  //   () => orders.filter(o => o.orderStatus === selectedTab),
+  //   [orders, selectedTab],
+  // );
 
   const getStatusSVG = status => {
     switch (status) {
@@ -571,7 +573,7 @@ const HomeTab = () => {
  )}
 
         {/* Bottom Info */}
-        {item.orderStatus === 'New Orders' && (
+        {/* {item.orderStatus === 'New Orders' && (
           <Row style={styles.bottomRow}>
             <View>
               <Regular
@@ -602,7 +604,7 @@ const HomeTab = () => {
               <Medium color={colors.black} label="50 min" fontSize={mvs(15)} />
             </View>
           </Row>
-        )}
+        )} */}
       </TouchableOpacity>
     );
   };
@@ -635,63 +637,20 @@ const HomeTab = () => {
           </Row>
 
           {/* LOCATION CARD */}
-          <View style={styles.locationCard}>
-            <Row
-              style={{alignItems: 'flex-start', justifyContent: 'flex-start'}}>
-              <Image
-                source={IMG.locationHome}
-                resizeMode="contain"
-                style={styles.locationIcon}
-              />
-              <View style={{flex: 1}}>
-                <Medium
-                  label="Street: Manfouha Dist Batha Main"
-                  numberOfLines={2}
-                  fontSize={mvs(15)}
-                  color={colors.black}
-                />
-
-                <Row style={styles.locationBottomRow}>
-                  <View>
-                    <Regular
-                      label="Due In"
-                      color={colors.subteXTcOLOR}
-                      fontSize={mvs(14)}
-                    />
-                    <Medium
-                      color={colors.black}
-                      label="1h 15 min"
-                      fontSize={mvs(15)}
+           <View style={styles.searchRow}>
+                  <View style={styles.searchBox}>
+                    <Ionicons name="search" size={18} color="#bbb" style={{ marginLeft: 10 }} />
+                    <TextInput
+                      placeholder="Tracking Number"
+                      placeholderTextColor="#bbb"
+                      style={styles.input}
                     />
                   </View>
-                  <View>
-                    <Regular
-                      label="Distance"
-                      color={colors.subteXTcOLOR}
-                      fontSize={mvs(14)}
-                    />
-                    <Medium
-                      color={colors.black}
-                      label="5.0 km"
-                      fontSize={mvs(15)}
-                    />
+          
+                  <View style={styles.scanButton}>
+                    <Ionicons name="scan-outline" size={20} color="#FF6E40" />
                   </View>
-                  <TouchableOpacity style={styles.activeBtn}>
-                    <Bold
-                      label="Active"
-                      fontSize={mvs(13)}
-                      color={colors.primary}
-                    />
-                    <Image
-                      source={IMG.activeArrow}
-                      resizeMode="contain"
-                      style={styles.activeArrow}
-                    />
-                  </TouchableOpacity>
-                </Row>
-              </View>
-            </Row>
-          </View>
+                </View>
         </View>
 
         {/* WHITE SECTION */}
@@ -699,12 +658,12 @@ const HomeTab = () => {
           <Bold
             fontSize={mvs(15)}
             color={colors.black}
-            label={'All Orders'}
+            label={'Current Shipping'}
             style={{marginVertical: mvs(10)}}
           />
 
           {/* Tabs */}
-          <ScrollView
+          {/* <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.tabContainer}>
@@ -745,11 +704,11 @@ const HomeTab = () => {
                 </TouchableOpacity>
               );
             })}
-          </ScrollView>
+          </ScrollView> */}
 
           {/* Orders List */}
           <FlatList
-            data={filteredOrders}
+            data={orders}
             renderItem={renderOrderItem}
             keyExtractor={(item, index) => index.toString()}
             showsVerticalScrollIndicator={false}
@@ -863,6 +822,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
     paddingVertical: mvs(4),
+  },
+    searchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 25,
+  },
+
+  searchBox: {
+    flex: 1,
+    backgroundColor: '#fff',
+    height: 48,
+    borderRadius: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  input: {
+    flex: 1,
+    marginLeft: 6,
+    color: '#333',
+    fontSize: 14,
+  },
+
+  scanButton: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
   },
   starIcon: {
     width: mvs(16),

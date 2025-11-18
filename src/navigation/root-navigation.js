@@ -93,11 +93,11 @@ export const RootNavigator = () => {
       />
       <Stack.Navigator
         //  initialRouteName="DriverRegistrationPart7Screen"
-         initialRouteName="HelpCenterScreen"
+        //  initialRouteName="HelpCenterScreen"
         //  initialRouteName="QRScreen"
         //  initialRouteName="Splash"
         // initialRouteName="UserTab"
-      //  initialRouteName="Drawer"
+       initialRouteName="Drawer" 
         screenOptions={horizontalAnimation}>
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
