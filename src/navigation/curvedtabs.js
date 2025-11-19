@@ -118,6 +118,7 @@ import ChatScreen from 'screens/chat-screen';
 import OverviewScreen from 'screens/overview-screen';
 import ReviewFromAdminScreen from 'screens/review-from-admin';
 import DriverProfileScreen from 'screens/driver-profile';
+import HelpCenterScreen from 'screens/help-center-screen';
 
 const Tab = createBottomTabNavigator();
 
@@ -155,10 +156,10 @@ function MyTabBar({state, descriptors, navigation}) {
             ? isFocused
               ? IMG.DeliveryFocused
               : IMG.Deliverysimple
-            : route.name === 'ChatScreen'
+            : route.name === 'HelpCenterScreen'
             ? isFocused
-              ? IMG.chatfocused
-              : IMG.chatsimple
+              ? IMG.SupportFilled
+              : IMG.SupportSimple
             : route.name === 'OverviewScreen'
             ? isFocused
               ? IMG.overviewFocused
@@ -229,14 +230,14 @@ export const TabBar = () => {
         component={HomeTab}
         options={{tabBarLabel: 'Orders'}}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="OverviewScreen"
         component={OverviewScreen}
         options={{tabBarLabel: 'Overview'}}
-      />
+      /> */}
       <Tab.Screen
-        name="ChatScreen"
-        component={ChatScreen}
+        name="HelpCenterScreen"
+        component={HelpCenterScreen}
         options={{tabBarLabel: 'Chat'}}
       />
       

@@ -88,7 +88,7 @@ const DriverUpdateRegistrationPart1Screen = props => {
   return (
     <View style={styles.container}>
       <ScrollView>
-               <Header1x2x title={'Driver Registration'} />
+               <Header1x2x title={'Personal Details'} />
                <Row style={{alignItems:"center",marginHorizontal:mvs(14),marginVertical:mvs(10)}}>
         {/* <Image source={IMG.Stepper1} resizeMode='contain' style={styles.imglogo} />
         <Medium label={'Step 1 / 10'} fontSize={mvs(12)} color={colors.black}/>  */}
@@ -102,12 +102,12 @@ const DriverUpdateRegistrationPart1Screen = props => {
           />
           <Image source={IMG.wave} style={styles.waveimg} />
         </Row> */}
-        <View style={{marginHorizontal:mvs(14)}}>
-        <Medium
+        <View style={{marginHorizontal:mvs(4)}}>
+        {/* <Medium
           label={'Personal Information'}
           color={colors.black}
           fontSize={mvs(18)}
-        />
+        /> */}
         </View>
         <View style={styles.contentContainerStyle}>
           <KeyboardAvoidScrollview
@@ -130,7 +130,25 @@ const DriverUpdateRegistrationPart1Screen = props => {
                     <PrimaryInput
                     isFulName
                       error={touched?.firstName ? errors.firstName : ''}
-                      placeholder={'First Name'}
+                      placeholder={'Name'}
+                      onChangeText={handleChange('firstName')}
+                      onBlur={handleBlur('firstName')}
+                      value={values.firstName}
+                      // containerStyle={styles.input}
+                    />
+                    <PrimaryInput
+                    isEmailInput
+                      error={touched?.firstName ? errors.firstName : ''}
+                      placeholder={'Email'}
+                      onChangeText={handleChange('Email')}
+                      onBlur={handleBlur('Email')}
+                      value={values.firstName}
+                      // containerStyle={styles.input}
+                    />
+                    <PrimaryInput
+                    isCountry
+                      error={touched?.firstName ? errors.firstName : ''}
+                      placeholder={'Mobile Number'}
                       onChangeText={handleChange('firstName')}
                       onBlur={handleBlur('firstName')}
                       value={values.firstName}
@@ -138,7 +156,7 @@ const DriverUpdateRegistrationPart1Screen = props => {
                     />
                     <InputWithIcon
 
-                    placeholder={'Select Nationality'}
+                    placeholder={'Home Area'}
                     // isRequired
                     // error={touched?.method ? t(errors.method) : ''}
                     // onChangeText={id => setFieldValue('method', id)}
@@ -148,45 +166,8 @@ const DriverUpdateRegistrationPart1Screen = props => {
                     items={Nationality}
                     
                     />
-                   <PrimaryInput
-                    isIDcard
-                      error={touched?.firstName ? errors.firstName : ''}
-                      placeholder={'Iqama Number / National ID Number'}
-                      onChangeText={handleChange('firstName')}
-                      onBlur={handleBlur('firstName')}
-                      value={values.firstName}
-                      // containerStyle={styles.input}
-                    />
-                     <PrimaryInput
-                    isCalendarInput
-                      error={touched?.firstName ? errors.firstName : ''}
-                      placeholder={'Iqama Expiry Date'}
-                      onChangeText={handleChange('firstName')}
-                      onBlur={handleBlur('firstName')}
-                      value={values.firstName}
-                      // containerStyle={styles.input}
-                    />
-                     <InputWithIcon
 
-                    placeholder={'Vehicle Type'}
-                    // isRequired
-                    // error={touched?.method ? t(errors.method) : ''}
-                    // onChangeText={id => setFieldValue('method', id)}
-                    // onBlur={handleChange('vehicle_make')}
-                    // value={values?.method}
-                    // id={values?.method}
-                    items={Nationality}
                     
-                    />
-                     <PrimaryInput
-                    isAddressInput
-                      error={touched?.firstName ? errors.firstName : ''}
-                      placeholder={'Home Address'}
-                      onChangeText={handleChange('firstName')}
-                      onBlur={handleBlur('firstName')}
-                      value={values.firstName}
-                      // containerStyle={styles.input}
-                    />
                    <Row style={{ justifyContent: 'space-between',  }}>
   {['Male', 'Female'].map((gender) => (
     <TouchableOpacity
@@ -219,9 +200,9 @@ const DriverUpdateRegistrationPart1Screen = props => {
         {selectedGender === gender && (
           <View
             style={{
-              height: mvs(10),
-              width: mvs(10),
-              borderRadius: mvs(5),
+              height: mvs(12),
+              width: mvs(12),
+              borderRadius: mvs(10),
               backgroundColor: colors.primary,
             }}
           />
@@ -232,30 +213,9 @@ const DriverUpdateRegistrationPart1Screen = props => {
     </TouchableOpacity>
   ))}
 </Row>
-<View style={{marginTop:mvs(20)}}>
-<PrimaryInput
-                    isCountry
-                      error={touched?.firstName ? errors.firstName : ''}
-                      placeholder={'Mobile Number'}
-                      onChangeText={handleChange('firstName')}
-                      onBlur={handleBlur('firstName')}
-                      value={values.firstName}
-                      // containerStyle={styles.input}
-                    />
-                    <Regular style={{marginBottom:mvs(0)}} fontSize={mvs(13)} color={colors.black} label={'We will verified your number'}/>
-                    </View>
 
-                    <PrimaryButton
-                      containerStyle={{
-                        borderRadius: mvs(50),
-                        height: mvs(50),
-                        marginTop: mvs(25),
-                      }}
-                      loading={loading}
-                      // onPress={handleSubmit}
-                      onPress={()=>navigate(goBack)}
-                      title={'Update'}
-                    />
+
+                    
                   
                    
                   </>
@@ -272,7 +232,22 @@ const DriverUpdateRegistrationPart1Screen = props => {
         onChangeText={() => {
           setModalVisible(false);
         }}
+
       /> */}
+      <View style={{marginBottom:mvs(20),alignItems:"center"}}>
+
+      <PrimaryButton
+                      containerStyle={{
+                        borderRadius: mvs(50),
+                        height: mvs(50),
+width:"95%"
+                      }}
+                      loading={loading}
+                      // onPress={handleSubmit}
+                      onPress={()=>navigate(goBack)}
+                      title={'Update'}
+                    />
+                    </View>
       <ResendOtpModal
         visible={otpModalVisible}
         onClose={() => setOtpModalVisible(false)}

@@ -85,6 +85,10 @@ export {default as arrowupheader} from './arrow-up-header.png';
 export {default as deliveryStepper3} from './deliveryStepper3.svg';
 export {default as camera} from './camera.svg';
 export {default as geolocation} from './geolocation.svg';
+export {default as customerDispatched} from './customerDispatched.svg';
+export {default as customerOnMyWay} from './customerOnMyWay.svg';
+export {default as customerDelivered} from './customerDelivered.svg';
+export {default as customerDecline} from './customerDecline.svg';
 export {default as barcode} from './barcode.svg';
 export {default as geolocationFocused} from './geolocation-focused.svg';
 export {default as barcodeFocused} from './barcode-focused.svg';
@@ -92,6 +96,14 @@ export {default as cameraFocused} from './camera-focused.svg';
 export {default as Checklist} from './Checklist.png';
 export {default as checkmarklocation} from './checkmarklocation.svg';
 export {default as closeoutline} from './close-outline.png';
+export {default as customerNotification} from './customerNotification.png';
+export {default as customerScan} from './customerScan.png';
+export {default as customerLocation} from './customerLocation.png';
+export {default as customerfilledStar} from './customerfilledStar.png';
+export {default as customerunfilledStar} from './customerunfilledStar.png';
+export {default as SupportFilled} from './SupportFilled.png';
+export {default as SupportSimple} from './SupportSimple.png';
+export {default as Contentcopy} from './Contentcopy.png';
 
 
 //////////////////////////Bottom Tab ////////
@@ -111,6 +123,7 @@ export {default as StarEmpty} from './StarEmpty.svg';
 export {default as delievrystepper1} from './delievrystepper1.svg';
 export {default as Maplocation} from './Map-location.svg';
 export {default as Arrowdouble} from './Arrow-double.svg';
+export {default as customerStepper1} from './customer-stepper1.svg';
 export {default as driver} from './driver.png';
 export {default as maplocationicon} from './maplocationicon.png';
 export {default as deliveryStepper2} from './deliveryStepper2.svg';

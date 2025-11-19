@@ -113,8 +113,15 @@ const HelpCenterScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={goBack} style={styles.backButton}>
-          <Icon name="chevron-back" size={mvs(30)} color={colors.white} />
+        <TouchableOpacity 
+        // onPress={goBack}
+         style={styles.backButton}>
+           <Image
+                          source={IMG.customerLocation}
+                          style={{height: mvs(35), width: mvs(35)}}
+                          resizeMode="contain"
+                        />
+          {/* <Icon name="chevron-back" size={mvs(30)} color={colors.white} /> */}
         </TouchableOpacity>
         <Medium
           label="Help Center"
@@ -122,7 +129,18 @@ const HelpCenterScreen = () => {
           fontSize={mvs(18)}
           style={styles.headerTitle}
         />
-        <View style={styles.placeholder} />
+         <TouchableOpacity
+                    //  style={styles.notificationBtn}
+                     >
+                      <Image
+                        source={IMG.customerNotification}
+                        style={{height: mvs(35), width: mvs(35)}}
+                        resizeMode="contain"
+                      />
+                    </TouchableOpacity>
+
+
+
       </View>
 
       {/* Content */}

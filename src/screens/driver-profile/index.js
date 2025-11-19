@@ -80,129 +80,32 @@ const [idCardVerified, setIdCardVerified] = useState(false);
               </View>
             </View>
           </View>
+<View style={{marginVertical:mvs(10)}}>
+         <Medium label={'Delivery Location'} fontSize={mvs(15)}  color={colors.black}/>
+         <Row style={{marginVertical:mvs(10),alignItems:"center"}}>
+          <Row style={{justifyContent:"flex-start",alignItems:"center"}}>
+          <TouchableOpacity 
 
-          {/* <Medium
-            label="Action Required"
-            color={colors.blackgrey}
-            fontSize={mvs(16)}
-            style={{marginTop: mvs(16)}}
-          />
+                  style={styles.backButton}>
+                    <Image
+                                   source={IMG.customerLocation}
+                                   style={{height: mvs(35), width: mvs(35)}}
+                                   resizeMode="contain"
+                                 />
+                 </TouchableOpacity>
+                 <Medium style={{marginLeft:mvs(12)}} label={'Manfouha Dist Batha Main'} color={colors.black} fontSize={mvs(15)}/>
+                 </Row>
+                  <TouchableOpacity 
 
-          <TouchableOpacity style={styles.requireCard}>
-            <Medium
-              color={colors.grey700}
-              label="Documents Need Verify"
-              fontSize={mvs(14)}
-            />
-            <View style={styles.statusBadge}>
-
-              <Regular label={'Expired'} color={'#EF4770'} fontSize={mvs(14)} />
-            </View>
-            <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.requireCard}>
-            <Medium
-              color={colors.grey700}
-              label="Upload Your ID card"
-              fontSize={mvs(14)}
-            />
-            <View style={styles.statusBadge}>
-
-              <Regular
-                label={'Required'}
-                color={'#EF4770'}
-                fontSize={mvs(14)}
-              />
-            </View>
-            <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-          </TouchableOpacity> */}
-          {/* --- Action Section --- */}
-{documentsVerified && idCardVerified ? (
-  <View style={styles.verifiedCard}>
-    <Medium
-      label="Action Required"
-      color={colors.blackgrey}
-      fontSize={mvs(16)}
-      style={{marginTop: mvs(16)}}
-    />
-    <View style={styles.verifiedBox}>
-      <Image
-        source={IMG.verifiedtick}
-        resizeMode="contain"
-        style={{width: mvs(60), height: mvs(60)}}
-      />
-      <Medium
-        label="Your profile is active"
-        color={colors.blackgrey}
-        fontSize={mvs(14)}
-        style={{marginTop: mvs(8),fontWeight:"500"}}
-      />
-    </View>
-  </View>
-) : (
-  <>
-    <Medium
-      label="Action Required"
-      color={colors.blackgrey}
-      fontSize={mvs(16)}
-      style={{marginTop: mvs(16)}}
-    />
-
-    <TouchableOpacity
-      style={styles.requireCard}
-      // onPress={() => setDocumentsVerified(true)}
-      onPress={() => {
-    setDocumentsVerified(true);
-    navigate('RestrictScreen');
-  }}
-      >
-      <Medium
-        color={colors.grey700}
-        label="Documents Need Verify"
-        fontSize={mvs(14)}
-      />
-      <View style={styles.statusBadge}>
-        <Regular label={'Expired'} color={'#EF4770'} fontSize={mvs(14)} />
-      </View>
-      <Image
-        source={IMG.rightArrow}
-        resizeMode="contain"
-        style={{width: mvs(16), height: mvs(16)}}
-      />
-    </TouchableOpacity>
-
-    <TouchableOpacity
-      style={styles.requireCard}
-      onPress={() => setIdCardVerified(true)}>
-      <Medium
-        color={colors.grey700}
-        label="Upload Your ID card"
-        fontSize={mvs(14)}
-      />
-      <View style={styles.statusBadge}>
-        <Regular label={'Required'} color={'#EF4770'} fontSize={mvs(14)} />
-      </View>
-      <Image
-        source={IMG.rightArrow}
-        resizeMode="contain"
-        style={{width: mvs(16), height: mvs(16)}}
-      />
-    </TouchableOpacity>
-  </>
-)}
+                  style={styles.backButton}>
+                    <Image
+                                   source={IMG.editicon}
+                                   style={{height: mvs(30), width: mvs(30)}}
+                                   resizeMode="contain"
+                                 />
+                 </TouchableOpacity>
+         </Row>
+         </View>
 
         </View>
       </View>
@@ -220,7 +123,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
             onPress={()=>navigate("DriverUpdateRegistrationPart1Screen")}
               style={{
                 ...styles.optionRow,
-                borderBottomWidth: 1,
+                // borderBottomWidth: 1,
                 borderBottomColor: '#EBECEF',
               }}>
                 <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
@@ -239,111 +142,44 @@ const [idCardVerified, setIdCardVerified] = useState(false);
               />
             </View>
             </TouchableOpacity>
-            <TouchableOpacity
-            onPress={()=>navigate("DriverUpdateVehicleRegistrationScreen")}
-              style={{
-                ...styles.optionRow,
-                // borderBottomWidth: 1,
-                // borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.Vehicle} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Change Vehicle Details"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
-        
+           
           </View>
-          <Medium label="Documents" fontSize={mvs(16)} color={'#111827'} style={{marginTop:mvs(10)}}/>
+         
+          <Medium label="App Settings" fontSize={mvs(16)} color={'#111827'} style={{marginTop:mvs(10)}}/>
           <View style={styles.section}>
-            <TouchableOpacity
-            onPress={()=>navigate("DriverUpdateLicenseScreen")}
+              <TouchableOpacity
+            onPress={()=>navigate("NavigationPreferenceScreen")}
               style={{
                 ...styles.optionRow,
                 borderBottomWidth: 1,
                 borderBottomColor: '#EBECEF',
               }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.driverId} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Driver License"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-             onPress={()=>navigate("DriverUpdateVehicleImageScreen")}
-
-              style={{
-                ...styles.optionRow,
-                borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
+                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"80%"}}>
               <Image resizeMode='contain' source={IMG.driverCamera} style={styles.optionIcon} />
               <Medium
                 fontSize={mvs(14)}
-                label="Vehicle Image"
+                label="Language Prefernce"
                 color={colors.subteXTcOLOR}
               />
               </Row>
                 <View>
+                  <Row style={{justifyContent:"flex-start",alignItems:"center"}}>
+                    <Medium label='Eng' color={colors.black} fontSize={mvs(14)}/>
+                    <View style={{marginLeft:mvs(5)}}>
               <Image
-                source={IMG.rightArrow}
+                source={IMG.countryInput}
                 resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
+                style={{width: mvs(24), height: mvs(24)}}
               />
-            </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-                 onPress={()=>navigate("DriverUpdateWorkPermitScreen")}
-              style={{
-                ...styles.optionRow,
-             
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.driverReciept} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Work Permit.Muqeem Card"
-                color={colors.subteXTcOLOR}
-              />
+              </View>
               </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
             </View>
             </TouchableOpacity>
-           
-          </View>
-          <Medium label="App Settings" fontSize={mvs(16)} color={'#111827'} style={{marginTop:mvs(10)}}/>
-          <View style={styles.section}>
             <TouchableOpacity
             onPress={()=>navigate("NotificationPrefernceScreen")}
               style={{
                 ...styles.optionRow,
-                borderBottomWidth: 1,
+                // borderBottomWidth: 1,
                 borderBottomColor: '#EBECEF',
               }}>
                 <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
@@ -362,29 +198,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
               />
             </View>
             </TouchableOpacity>
-            <TouchableOpacity
-            onPress={()=>navigate("NavigationPreferenceScreen")}
-              style={{
-                ...styles.optionRow,
-                borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.driverCamera} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Navigation Prefernce"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
+          
          
            
           </View>
@@ -417,132 +231,8 @@ const [idCardVerified, setIdCardVerified] = useState(false);
          
            
           </View>
-          <Medium label="Help & Support" fontSize={mvs(16)} color={'#111827'} style={{marginTop:mvs(10)}}/>
-          <View style={styles.section}>
-            <TouchableOpacity
-              style={{
-                ...styles.optionRow,
-                borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.prfoileNotify} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="FAQ"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigate('HelpCenterScreen')}
-              style={{
-                ...styles.optionRow,
-                borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.driverCamera} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Help Center"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-            onPress={()=>navigate("ChatWithAdminScreen")}
-              style={{
-                ...styles.optionRow,
-                borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.driverCamera} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Chat with Admin"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigate('PrivacyPolicyScreen')}
-              style={{
-                ...styles.optionRow,
-                borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.driverCamera} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Privacy Policy"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
          
-           
-          </View>
-           <Medium label="My Ratings & Reviews" fontSize={mvs(16)} color={'#111827'} style={{marginTop:mvs(10)}}/>
-          <View style={styles.section}>
-            <TouchableOpacity
-            onPress={() => navigate('ReviewFromAdminScreen')}
-              style={{
-                ...styles.optionRow,
-                // borderBottomWidth: 1,
-                // borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.prfoileNotify} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="View Admin feedback and rating"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
-           
-           
-         
-           
-          </View>
+
           
            <View style={{...styles.section,backgroundColor:"#faedf1",borderColor:colors.red}}>
             <TouchableOpacity
@@ -666,7 +356,7 @@ const styles = StyleSheet.create({
   profileCard: {
     backgroundColor: colors.white,
     borderRadius: mvs(14),
-    height: mvs(225),
+    height: mvs(165),
     padding: mvs(14),
     marginHorizontal: mvs(16),
     // marginTop: mvs(10),

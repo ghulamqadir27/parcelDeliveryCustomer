@@ -43,7 +43,13 @@ const TrackingDetailsScreen = () => {
               </Text>
             </View>
             <TouchableOpacity style={{ marginLeft: mvs(5) }}>
-              <Ionicons name="copy" size={mvs(20)} color={colors.primary} />
+              <Image
+              source={IMG.Contentcopy}
+              resizeMode='contain'
+              style={{width:mvs(18),height:mvs(18)}}
+              
+              />
+              {/* <Ionicons name="copy" size={mvs(20)} color={colors.primary} /> */}
             </TouchableOpacity>
           </Row>
           <View style={styles.badge}>
