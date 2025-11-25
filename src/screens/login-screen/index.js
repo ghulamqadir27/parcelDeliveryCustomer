@@ -53,7 +53,7 @@ const LoginScreen = props => {
     //     //   console.log('Stored user:', storedUser);
     //     // }
     //     resetForm();
-    //     navigate('Drawer');
+        navigate('Drawer');
     //   } else {
     //     Alert.alert('Login Failed', response.message || 'Invalid credentials.');
     //   }
@@ -104,7 +104,7 @@ async function onGoogleButtonPress() {
 }
   return (
     <View style={styles.container}>
-            <StatusBar backgroundColor={colors.white} barStyle="dark-content" />
+            <StatusBar backgroundColor={colors.primary} barStyle="dark-content" />
       
       <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
     <View style={styles.imgView}>

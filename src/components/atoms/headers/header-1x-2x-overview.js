@@ -50,9 +50,9 @@ const HeaderXOvervIew = ({
         ) : (
           <View />
         )}
-
+ <View />
         {/* Right: Entypo Dots */}
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() =>navigate("Notifications")
           }
         >
@@ -64,7 +64,7 @@ const HeaderXOvervIew = ({
             style={{height:mvs(24),width:mvs(24)}}
             // color={colors.white}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </Row>
 
       {/* Optional Search Bar */}

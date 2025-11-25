@@ -62,6 +62,7 @@ type props = {
   layout?: 'first';
   isPassword?: boolean;
   isFulName?: boolean;
+  isName?: boolean;
 isAddressInput?: boolean;
  isCalendarInput?: boolean;
  isIDcard?: boolean;
@@ -164,6 +165,7 @@ const PrimaryInput = (props: props) => {
     secureTextEntry,
     isPassword,
     isFulName,
+    isName,
     isIDcard,
     isCalendarInput,
     isAddressInput,
@@ -208,6 +210,20 @@ isCountry,
             <Image
               // size={25}
               source={IMG.Profile1}
+              resizeMode='contain'
+              style={{width:mvs(20),height:mvs(20)}}
+
+            />
+          </TouchableOpacity>
+        )}
+         {isName && (
+          <TouchableOpacity
+            style={styles.PasswordIcon}
+            // onPress={() => setSecure(!secure)}
+            >
+            <Image
+              // size={25}
+              source={IMG.name}
               resizeMode='contain'
               style={{width:mvs(20),height:mvs(20)}}
 
@@ -490,6 +506,7 @@ export const InputWithIcon = (props: props) => {
     label,
     isRequired = false,
   } = props;
+  
   return (
     <>
       {label && (
@@ -507,13 +524,11 @@ export const InputWithIcon = (props: props) => {
         <Regular
           label={
             items?.find(x => x?.id == id)?.title ||
-            // items?.find(x => x?.id == id)?.id ||
             items?.find(x => x?.id == id)?.name ||
             placeholder
           }
           color={colors.black}
           style={{fontWeight:'400'}}
-          
           fontSize={mvs(16)}
         />
         <Feather size={25} name={'chevron-down'} color={colors.black} />

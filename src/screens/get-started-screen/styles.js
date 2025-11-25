@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   button2: {
     width: '100%',
     backgroundColor: colors.white,
-    borderWidth: 1,
+    // borderWidth: 1,
     height: mvs(50),
     borderRadius: mvs(60),
   },

@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     marginBottom: mvs(15),
   },
   keyButton: {
-    width: mvs(117),
+    width: '29%',
     height: mvs(47),
     borderRadius: mvs(5),
     justifyContent: 'center',

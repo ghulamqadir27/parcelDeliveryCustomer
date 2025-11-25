@@ -178,3 +178,7 @@ export {default as eyeSlash} from './eye-slash.png';
 export {default as lock} from './lock.png';
 export {default as ratingstar} from './star1.png';
 export {default as ratinghalfstar} from './halfstar2.png';
+export {default as partiallycompleted} from './partiallycompleted.png';
+export {default as signout} from './signout.png';
+export {default as name} from './name.png';
+export {default as homeuser} from './homeuser.png';

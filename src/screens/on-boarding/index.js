@@ -215,7 +215,7 @@ const Onboarding = ({navigation}) => {
               <View style={styles.contentSlide}>
                 <Medium
                   label={item?.title}
-                  fontSize={mvs(24)}
+                  fontSize={mvs(20)}
                   color={colors.black}
                   style={styles.title}
                 />

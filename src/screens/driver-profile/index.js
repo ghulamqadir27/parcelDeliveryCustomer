@@ -46,7 +46,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
     <View style={styles.container}>
       {/* --- Fixed Header --- */}
       <View style={styles.headerSection}>
-        <Header1x2xOverview back={false} title={'Driver Profile'} />
+        <Header1x2xOverview back={false} title={'Your Profile'} />
         <View style={styles.profileCard}>
           <View style={styles.profileRow}>
             <View style={styles.profileImageContainer}>
@@ -56,7 +56,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
                 style={styles.profileImage}
               />
             </View>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={openImagePicker}
               style={styles.editButton}>
               <Image
@@ -64,10 +64,10 @@ const [idCardVerified, setIdCardVerified] = useState(false);
                 resizeMode="contain"
                 style={{width: mvs(25), height: mvs(25)}}
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <View style={{marginLeft: mvs(20)}}>
               <Bold
-                label="Driver Name"
+                label="Ahmad Mossani"
                 color={colors.blackgrey}
                 fontSize={mvs(15)}
               />
@@ -80,32 +80,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
               </View>
             </View>
           </View>
-<View style={{marginVertical:mvs(10)}}>
-         <Medium label={'Delivery Location'} fontSize={mvs(15)}  color={colors.black}/>
-         <Row style={{marginVertical:mvs(10),alignItems:"center"}}>
-          <Row style={{justifyContent:"flex-start",alignItems:"center"}}>
-          <TouchableOpacity 
 
-                  style={styles.backButton}>
-                    <Image
-                                   source={IMG.customerLocation}
-                                   style={{height: mvs(35), width: mvs(35)}}
-                                   resizeMode="contain"
-                                 />
-                 </TouchableOpacity>
-                 <Medium style={{marginLeft:mvs(12)}} label={'Manfouha Dist Batha Main'} color={colors.black} fontSize={mvs(15)}/>
-                 </Row>
-                  <TouchableOpacity 
-
-                  style={styles.backButton}>
-                    <Image
-                                   source={IMG.editicon}
-                                   style={{height: mvs(30), width: mvs(30)}}
-                                   resizeMode="contain"
-                                 />
-                 </TouchableOpacity>
-         </Row>
-         </View>
 
         </View>
       </View>
@@ -145,63 +120,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
            
           </View>
          
-          <Medium label="App Settings" fontSize={mvs(16)} color={'#111827'} style={{marginTop:mvs(10)}}/>
-          <View style={styles.section}>
-              <TouchableOpacity
-            onPress={()=>navigate("NavigationPreferenceScreen")}
-              style={{
-                ...styles.optionRow,
-                borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"80%"}}>
-              <Image resizeMode='contain' source={IMG.driverCamera} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Language Prefernce"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-                  <Row style={{justifyContent:"flex-start",alignItems:"center"}}>
-                    <Medium label='Eng' color={colors.black} fontSize={mvs(14)}/>
-                    <View style={{marginLeft:mvs(5)}}>
-              <Image
-                source={IMG.countryInput}
-                resizeMode="contain"
-                style={{width: mvs(24), height: mvs(24)}}
-              />
-              </View>
-              </Row>
-            </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-            onPress={()=>navigate("NotificationPrefernceScreen")}
-              style={{
-                ...styles.optionRow,
-                // borderBottomWidth: 1,
-                borderBottomColor: '#EBECEF',
-              }}>
-                <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.prfoileNotify} style={styles.optionIcon} />
-              <Medium
-                fontSize={mvs(14)}
-                label="Notifications Preference"
-                color={colors.subteXTcOLOR}
-              />
-              </Row>
-                <View>
-              <Image
-                source={IMG.rightArrow}
-                resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
-              />
-            </View>
-            </TouchableOpacity>
-          
-         
-           
-          </View>
+    
           <Medium label="Security" fontSize={mvs(16)} color={'#111827'} style={{marginTop:mvs(10)}}/>
           <View style={styles.section}>
             <TouchableOpacity
@@ -234,7 +153,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
          
 
           
-           <View style={{...styles.section,backgroundColor:"#faedf1",borderColor:colors.red}}>
+           <View style={{...styles.section,backgroundColor:"#FDECF1",borderWidth:1,borderColor:'#F9B5C6',marginTop:mvs(20)}}>
             <TouchableOpacity
             onPress={() => setShowLogoutModal(true)}
               style={{
@@ -243,11 +162,11 @@ const [idCardVerified, setIdCardVerified] = useState(false);
                 // borderBottomColor: '#EBECEF',
               }}>
                 <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.prfoileNotify} style={styles.optionIcon} />
+              <Image resizeMode='contain' source={IMG.signout} style={styles.optionIcon} />
               <Medium
                 fontSize={mvs(14)}
                 label="Sign out"
-                color={colors.red}
+                color={'#EF4770'}
               />
               </Row>
                 <View>
@@ -292,7 +211,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
                        label={'Are you sure you want to Sign Out?'}
                      />
                      </View>
-                     <TouchableOpacity onPress={() => setShowConfirm(false)}>
+                     <TouchableOpacity onPress={() => setShowLogoutModal(false)}>
                      <Image
                        source={IMG.closeoutline}
                        resizeMode="contain"
@@ -356,7 +275,7 @@ const styles = StyleSheet.create({
   profileCard: {
     backgroundColor: colors.white,
     borderRadius: mvs(14),
-    height: mvs(165),
+    height: mvs(85),
     padding: mvs(14),
     marginHorizontal: mvs(16),
     // marginTop: mvs(10),
@@ -365,6 +284,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.08,
     shadowRadius: 6,
+    justifyContent: 'center',
   },
   profileRow: {flexDirection: 'row', alignItems: 'center'},
   profileImageContainer: {

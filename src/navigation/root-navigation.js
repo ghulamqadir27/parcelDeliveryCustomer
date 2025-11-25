@@ -63,6 +63,7 @@ import ChatInboxScreen from 'screens/chatInbox-screen';
 import OverviewScreen from 'screens/overview-screen';
 import RestrictScreen from 'screens/restrcit-screen';
 import NotificationPrefernceScreen from 'screens/notification-prefernce';
+import HelpSupportScreen from 'screens/help-support-screen';
 import NavigationPreferenceScreen from 'screens/navigation-prefernce';
 import ChatWithAdminScreen from 'screens/chat-with-admin';
 import ChatAdminInboxScreen from 'screens/chatInbox-admin-screen';
@@ -96,7 +97,7 @@ export const RootNavigator = () => {
         //  initialRouteName="HelpCenterScreen"
         //  initialRouteName="QRScreen"
         //  initialRouteName="Splash"
-        // initialRouteName="UserTab"
+        // initialRouteName="GetStarted"
        initialRouteName="Drawer" 
         screenOptions={horizontalAnimation}>
         <Stack.Group>
@@ -165,6 +166,7 @@ export const RootNavigator = () => {
           <Stack.Screen name="ChatUploadScreen" component={ChatUploadScreen} />
           <Stack.Screen name="ChatLocationScreen" component={ChatLocationScreen} />
           <Stack.Screen name="HelpCenterScreen" component={HelpCenterScreen} />
+          <Stack.Screen name="HelpSupportScreen" component={HelpSupportScreen} />
           <Stack.Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
           <Stack.Screen name="CreateNewPasswordScreen" component={CreateNewPasswordScreen} />
           <Stack.Screen name="DriverUpdateRegistrationPart1Screen" component={DriverUpdateRegistrationPart1Screen} />

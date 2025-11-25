@@ -27,3 +27,7 @@ export {default as Alert} from './notification.svg';
 export {default as AlertActive} from './notification-active.svg';
 export {default as Activities} from './activities.svg';
 export {default as ActivitiesActive} from './activities-active.svg';
+export {default as Support} from './support.svg';
+export {default as SupportActive} from './support-active.svg';
+export {default as Profile} from './profile.svg';
+export {default as ProfileActive} from './profile-active.svg';

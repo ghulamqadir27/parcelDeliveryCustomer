@@ -131,7 +131,7 @@ const SignUpAuthenticationCodeScreen = props => {
         </View>
 
         {/* Resend OTP button */}
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={{
             paddingHorizontal: mvs(20),
             justifyContent: 'flex-end',
@@ -151,9 +151,9 @@ const SignUpAuthenticationCodeScreen = props => {
             }}>
             Resend OTP
           </Regular>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
-        <View style={{ marginVertical: mvs(20), alignSelf: 'center' }}>
+        <View style={{ marginBottom: mvs(20), alignSelf: 'center' }}>
           <Text numberOfLines={3} style={{ letterSpacing: 0.2, fontWeight: '500', fontSize: mvs(16), fontFamily: fonts.medium }} color={colors.subText}>
             Resend code in {''}
             <Text style={{ fontWeight: 'bold', color: colors.grey, letterSpacing: 0.2, fontWeight: '500', fontSize: mvs(16) }}>00:{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</Text>
@@ -162,7 +162,7 @@ const SignUpAuthenticationCodeScreen = props => {
         <PrimaryButton
           containerStyle={{
             borderRadius: mvs(50),
-            marginTop: mvs(5),
+            marginTop: mvs(80),
             marginBottom: mvs(20),
           }}
           loading={loading}

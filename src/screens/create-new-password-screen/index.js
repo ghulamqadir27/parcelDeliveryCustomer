@@ -29,7 +29,7 @@ const CreateNewPasswordScreen = props => {
 
   const handleFormSubmit = async values => {
     // Handle form submission logic here
-    navigate('DriverProfileScreen');
+    navigate('Login');
   };
 
   return (
@@ -47,7 +47,7 @@ const CreateNewPasswordScreen = props => {
           <View style={styles.contentContainerStyleNew}>
             <Formik
               initialValues={initialValues}
-              validationSchema={ForgotPasswordSchema}
+              // validationSchema={ForgotPasswordSchema}
               onSubmit={handleFormSubmit}>
               {({
                 handleChange,

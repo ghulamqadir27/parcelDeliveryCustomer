@@ -128,7 +128,7 @@ const DriverUpdateRegistrationPart1Screen = props => {
                   <>
                     {console.log('errors', errors)}
                     <PrimaryInput
-                    isFulName
+                    isName
                       error={touched?.firstName ? errors.firstName : ''}
                       placeholder={'Name'}
                       onChangeText={handleChange('firstName')}

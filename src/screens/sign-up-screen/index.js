@@ -53,7 +53,7 @@ const SignUpScreen = props => {
         //   console.log('Stored user:', storedUser);
         // }
         // resetForm();
-        navigate('SignUpAuthenticationCode');
+        navigate('Login');
     //   } else {
     //     Alert.alert('Login Failed', response.message || 'Invalid credentials.');
     //   }

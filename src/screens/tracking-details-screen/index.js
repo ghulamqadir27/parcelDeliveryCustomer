@@ -8,6 +8,7 @@ import {
   Image,
   StatusBar,
 } from 'react-native';
+import {navigate} from 'navigation/navigation-ref';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 import Header1x2x from 'components/atoms/headers/header-1x-2x';
@@ -21,7 +22,22 @@ import Regular from 'typography/regular-text';
 import { PrimaryButton } from 'components/atoms/buttons';
 
 
-const TrackingDetailsScreen = () => {
+const TrackingDetailsScreen = props => {
+  const {orderStatus} = props.route.params || {};
+  console.log(orderStatus)
+const timelineData = orderStatus === "dispatched"
+  ? [
+    {title: 'Driver En Route for Pickup', status: 'completed', time: '12:00 am, 02 Jan 2022'},
+    {title: 'Parcel Picked Up', status: 'completed', time: '13:00 pm, 02 Jan 2022'},
+    {title: 'Out for Delivery', status: 'completed', time: '15:00 pm, 03 Jan 2022'},
+    {title: 'Delivered', status: 'partialdelivered', time: '15:00 pm, 03 Jan 2022'},
+  ]
+  : [
+    {title: 'Driver En Route for Pickup', status: 'completed', time: '12:00 am, 02 Jan 2022'},
+    {title: 'Parcel Picked Up', status: 'completed', time: '13:00 pm, 02 Jan 2022'},
+    {title: 'Delivery Cancelled', status: 'pending', time: '15:00 pm, 03 Jan 2022'},
+  ];
+
   return (
     <View style={styles.container}>
       <StatusBar
@@ -151,11 +167,7 @@ const TrackingDetailsScreen = () => {
 
 
   <View>
-    {[
-      {title: 'Driver En Route for Pickup', status: 'completed', time: '12:00 am, 02 Jan 2022'},
-      {title: 'Parcel Picked Up', status: 'completed', time: '13:00 pm, 02 Jan 2022'},
-      {title: 'Delivery Cancelled', status: 'pending', time: '15:00 pm, 03 Jan 2022'},
-    ].map((item, index, array) => (
+   {timelineData.map((item, index, array) => (
       <View key={index}>
         {/* TIMELINE ROW */}
         <Row style={{alignItems: 'flex-start'}}>
@@ -179,11 +191,20 @@ const TrackingDetailsScreen = () => {
                   resizeMode="contain"
                 />
               ) : (
+                  item?.status === "partialdelivered" ? (
+                
                  <Image
+                  source={IMG.partiallycompleted}
+                  style={{height: mvs(20), width: mvs(20)}}
+                  resizeMode="contain"
+                />
+                  ) : (
+                <Image
                   source={IMG.circledcrossred}
                   style={{height: mvs(20), width: mvs(20)}}
                   resizeMode="contain"
                 />
+                  )
               )}
             </View>
 
@@ -224,12 +245,20 @@ const TrackingDetailsScreen = () => {
        
 
       </ScrollView>
+      <>
+      <>
+        {console.log(orderStatus,!orderStatus==="dispatched" )}
+        </>
+
+      { orderStatus==="Cancel" && (
       <View style={{backgroundColor: colors.white, padding: mvs(15)}}>
        {/* <TouchableOpacity style={styles.supportButton}>
           <Text style={styles.supportText}>Contact Support</Text>
         </TouchableOpacity> */}
-        <PrimaryButton title='Contact Support' textStyle={{color: colors.primary}} containerStyle={styles.supportButton}/>
+        <PrimaryButton onPress={()=>navigate('HelpSupportScreen')} title='Contact Support' textStyle={{color: colors.primary}} containerStyle={styles.supportButton}/>
     </View>
+      )}
+    </>
     </View>
   );
 };

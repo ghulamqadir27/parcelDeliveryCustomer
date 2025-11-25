@@ -21,7 +21,7 @@ import {Row} from 'components/atoms/row';
 import {UTILS} from 'utils';
 import * as IMG from 'assets/images';
 
-const HelpCenterScreen = () => {
+const HelpSupportScreen = () => {
   const [expandedSections, setExpandedSections] = useState({
     customerService: true,
     email: false,
@@ -113,34 +113,16 @@ const HelpCenterScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity 
-        // onPress={goBack}
-         style={styles.backButton}>
-           <Image
-                          source={IMG.customerLocation}
-                          style={{height: mvs(35), width: mvs(35)}}
-                          resizeMode="contain"
-                        />
-          {/* <Icon name="chevron-back" size={mvs(30)} color={colors.white} /> */}
+        <TouchableOpacity onPress={goBack} style={styles.backButton}>
+          <Icon name="chevron-back" size={mvs(30)} color={colors.white} />
         </TouchableOpacity>
         <Medium
-          label="Support"
+          label="Help Center"
           color={colors.white}
           fontSize={mvs(18)}
           style={styles.headerTitle}
         />
-         <TouchableOpacity
-                    //  style={styles.notificationBtn}
-                     >
-                      <Image
-                        source={IMG.customerNotification}
-                        style={{height: mvs(35), width: mvs(35)}}
-                        resizeMode="contain"
-                      />
-                    </TouchableOpacity>
-
-
-
+        <View style={styles.placeholder} />
       </View>
 
       {/* Content */}
@@ -213,7 +195,7 @@ const HelpCenterScreen = () => {
               <MaterialIcons
                 name="phone"
                 size={mvs(20)}
-                color={colors.primary}
+                 color={colors.primary}
               />
             </TouchableOpacity>
             <TouchableOpacity
@@ -503,5 +485,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HelpCenterScreen;
-
+export default HelpSupportScreen;

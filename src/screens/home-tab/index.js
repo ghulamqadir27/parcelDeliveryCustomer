@@ -9,6 +9,7 @@ import {
   FlatList,
   TextInput,
   StyleSheet,
+  StatusBar,
 } from 'react-native';
 import {mvs} from 'config/metrices';
 import {colors} from 'config/colors';
@@ -184,7 +185,10 @@ const HomeTab = () => {
     return (
       <TouchableOpacity
         // onPress={() => navigate('DeelievryDetailsScreen')}
-        onPress={()=>navigate("TrackingDetailsScreen")}
+        disabled={item?.status==="dispatched" ? false:true}
+        onPress={()=>{
+          if(item?.status==="dispatched"){
+          navigate("TrackingDetailsScreen",{orderStatus:item?.status})}}}
         style={styles.orderCard}>
         <Row style={styles.orderHeader}>
           <Row>
@@ -339,7 +343,9 @@ const HomeTab = () => {
         height: mvs(50),
         backgroundColor: colors.white,
         width: "100%"
-      }}>
+      }}
+      onPress={() => {navigate('TrackingDetailsScreen',{orderStatus:item?.status})}}
+      >
       <Medium
         style={{fontWeight: '500', textAlign: "center"}}
         fontSize={mvs(16)}
@@ -357,13 +363,17 @@ const HomeTab = () => {
 
   return (
     <View style={{flex: 1, backgroundColor: colors.primary}}>
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <StatusBar
+              translucent={false}
+              backgroundColor={colors.primary}
+              barStyle={'white-content'}
+            />
         {/* HEADER */}
         <View style={{paddingHorizontal: mvs(10)}}>
           <Row style={styles.headerRow}>
             <Row style={{justifyContent:'flex-start',alignItems:"center"}}>
                <Image
-                source={IMG.customerLocation}
+                source={IMG.homeuser}
                 style={{height: mvs(35), width: mvs(35)}}
                 resizeMode="contain"
               />
@@ -381,6 +391,7 @@ const HomeTab = () => {
             </View>
             </Row>
             <TouchableOpacity
+            onPress={() => navigate('Notifications')}
             //  style={styles.notificationBtn}
              >
               <Image
@@ -419,6 +430,7 @@ const HomeTab = () => {
 
         {/* WHITE SECTION */}
         <View style={styles.whiteSection}>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <Bold
             fontSize={mvs(15)}
             color={colors.black}
@@ -443,8 +455,8 @@ const HomeTab = () => {
               </View>
             }
           />
-        </View>
       </ScrollView>
+        </View>
 
       {/* Driver Review Bottom Sheet */}
       <BottomSheet
