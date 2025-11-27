@@ -207,13 +207,15 @@ isCountry,
             style={styles.PasswordIcon}
             // onPress={() => setSecure(!secure)}
             >
-            <Image
+            {/* <Image
               // size={25}
               source={IMG.Profile1}
               resizeMode='contain'
               style={{width:mvs(20),height:mvs(20)}}
 
-            />
+            /> */}
+
+             <IMG.calendaroutline width={mvs(20)} height={mvs(20)} />
           </TouchableOpacity>
         )}
          {isName && (
@@ -221,13 +223,14 @@ isCountry,
             style={styles.PasswordIcon}
             // onPress={() => setSecure(!secure)}
             >
-            <Image
+            {/* <Image
               // size={25}
               source={IMG.name}
               resizeMode='contain'
               style={{width:mvs(20),height:mvs(20)}}
 
-            />
+            /> */}
+             <IMG.calendaroutline width={mvs(20)} height={mvs(20)} />
           </TouchableOpacity>
         )}
          {isIDcard && (
@@ -263,13 +266,15 @@ isCountry,
             style={styles.PasswordIcon}
             // onPress={() => setSecure(!secure)}
             >
-            <Image
+            {/* <Image
               // size={25}
               source={IMG.mail}
               resizeMode='contain'
               style={{width:mvs(20),height:mvs(20)}}
 
-            />
+            /> */}
+
+               <IMG.mailNew width={mvs(20)} height={mvs(20)} />
           </TouchableOpacity>
         )}
         {isPasswordInput && (
@@ -277,13 +282,15 @@ isCountry,
             style={styles.PasswordIcon}
             // onPress={() => setSecure(!secure)}
             >
-            <Image
+            {/* <Image
               // size={25}
               source={IMG.lock}
               resizeMode='contain'
               style={{width:mvs(20),height:mvs(20)}}
 
-            />
+            /> */}
+
+              <IMG.locknEWsVG width={mvs(20)} height={mvs(20)} />
           </TouchableOpacity>
         )}
          {isAddressInput && (

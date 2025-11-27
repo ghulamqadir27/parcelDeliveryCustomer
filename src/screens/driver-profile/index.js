@@ -102,7 +102,10 @@ const [idCardVerified, setIdCardVerified] = useState(false);
                 borderBottomColor: '#EBECEF',
               }}>
                 <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.driverprofile} style={styles.optionIcon} />
+              {/* <Image resizeMode='contain' source={IMG.driverprofile} style={styles.optionIcon} />
+               */}
+
+                <IMG.profileSvg width={mvs(20)} height={mvs(20)} style={{marginRight:mvs(10)}} />
               <Medium
                 fontSize={mvs(14)}
                 label="Personal Details"
@@ -131,7 +134,8 @@ const [idCardVerified, setIdCardVerified] = useState(false);
                 // borderBottomColor: '#EBECEF',
               }}>
                 <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.prfoileNotify} style={styles.optionIcon} />
+              {/* <Image resizeMode='contain' source={IMG.prfoileNotify} style={styles.optionIcon} /> */}
+              <IMG.lockoutline width={mvs(20)} height={mvs(20)} style={{marginRight:mvs(10)}} />
               <Medium
                 fontSize={mvs(14)}
                 label="Change Password"
@@ -162,7 +166,8 @@ const [idCardVerified, setIdCardVerified] = useState(false);
                 // borderBottomColor: '#EBECEF',
               }}>
                 <Row style={{alignItems:"center",justifyContent:"flex-start",width:"95%"}}>
-              <Image resizeMode='contain' source={IMG.signout} style={styles.optionIcon} />
+              {/* <Image resizeMode='contain' source={IMG.signout} style={styles.optionIcon} /> */}
+              <IMG.Logoutoutline width={mvs(20)} height={mvs(20)} style={{marginRight:mvs(10)}} />
               <Medium
                 fontSize={mvs(14)}
                 label="Sign out"
@@ -173,7 +178,7 @@ const [idCardVerified, setIdCardVerified] = useState(false);
               <Image
                 source={IMG.rightArrow}
                 resizeMode="contain"
-                style={{width: mvs(16), height: mvs(16)}}
+                style={{width: mvs(16), height: mvs(16), tintColor:"#EF4770",}}
               />
             </View>
             </TouchableOpacity>

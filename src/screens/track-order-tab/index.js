@@ -1,5 +1,3 @@
-
-
 import React, {useState, useMemo, useRef, useCallback} from 'react';
 import {
   View,
@@ -16,13 +14,17 @@ import {colors} from 'config/colors';
 import * as IMG from 'assets/images';
 import {Row} from 'components/atoms/row';
 import Bold from 'typography/bold-text';
-import Ionicons  from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Medium from 'typography/medium-text';
 import Regular from 'typography/regular-text';
 import {navigate} from 'navigation/navigation-ref';
-import BottomSheet, {BottomSheetScrollView, BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import BottomSheet, {
+  BottomSheetScrollView,
+  BottomSheetBackdrop,
+} from '@gorhom/bottom-sheet';
+import {PrimaryButton} from 'components/atoms/buttons';
 
-const HomeTab = () => {
+const TrackOrderTab = () => {
   const [selectedTab, setSelectedTab] = useState('New Orders');
   const bottomSheetRef = useRef(null);
   const [rating, setRating] = useState(0);
@@ -42,11 +44,11 @@ const HomeTab = () => {
     bottomSheetRef.current?.close();
   }, []);
 
-  const handleStarPress = useCallback((starIndex) => {
+  const handleStarPress = useCallback(starIndex => {
     setRating(starIndex + 1);
   }, []);
 
-  const handleTagPress = useCallback((tag) => {
+  const handleTagPress = useCallback(tag => {
     setSelectedTags(prev => {
       if (prev.includes(tag)) {
         return prev.filter(t => t !== tag);
@@ -66,7 +68,7 @@ const HomeTab = () => {
   }, [closeBottomSheet]);
 
   const renderBackdrop = useCallback(
-    (props) => (
+    props => (
       <BottomSheetBackdrop
         {...props}
         disappearsOnIndex={-1}
@@ -168,27 +170,29 @@ const HomeTab = () => {
   };
 
   const renderOrderItem = ({item}) => {
-//    const handlePress = () => {
-//   if (item.orderStatus === 'Accepted') {
-//     navigate('DeliveryParcelPickupScreen');
-//   } else if (item.orderStatus === 'Ongoing') {
-//     navigate('DeliveryParcelDeliveryDetailsScreen');
-//   } else if (item.orderStatus === 'Failed') {
-//     navigate('DeliveryParcelReturnDetailsScreen');
-//   } else if (item.orderStatus === 'Completed') {
-//     navigate('DeliveryParcelCompletedDetailsScreen');
-//   } else {
-//     navigate('DeelievryDetailsScreen');
-//   }
-// };
+    //    const handlePress = () => {
+    //   if (item.orderStatus === 'Accepted') {
+    //     navigate('DeliveryParcelPickupScreen');
+    //   } else if (item.orderStatus === 'Ongoing') {
+    //     navigate('DeliveryParcelDeliveryDetailsScreen');
+    //   } else if (item.orderStatus === 'Failed') {
+    //     navigate('DeliveryParcelReturnDetailsScreen');
+    //   } else if (item.orderStatus === 'Completed') {
+    //     navigate('DeliveryParcelCompletedDetailsScreen');
+    //   } else {
+    //     navigate('DeelievryDetailsScreen');
+    //   }
+    // };
 
     return (
       <TouchableOpacity
         // onPress={() => navigate('DeelievryDetailsScreen')}
-        disabled={item?.status==="dispatched" ? false:true}
-        onPress={()=>{
-          if(item?.status==="dispatched"){
-          navigate("TrackingDetailsScreen",{orderStatus:item?.status})}}}
+        disabled={item?.status === 'dispatched' ? false : true}
+        onPress={() => {
+          if (item?.status === 'dispatched') {
+            navigate('TrackingDetailsScreen', {orderStatus: item?.status});
+          }
+        }}
         style={styles.orderCard}>
         <Row style={styles.orderHeader}>
           <Row>
@@ -228,13 +232,13 @@ const HomeTab = () => {
               />
             </View>
           )} */}
-           <View style={styles.timeTag}>
-              <Medium
-                label={item.timeAgo}
-                color={colors.primary}
-                fontSize={mvs(13)}
-              />
-            </View>
+          <View style={styles.timeTag}>
+            <Medium
+              label={item.timeAgo}
+              color={colors.primary}
+              fontSize={mvs(13)}
+            />
+          </View>
         </Row>
 
         {getStatusSVG(item.status) && (
@@ -246,143 +250,133 @@ const HomeTab = () => {
         {/* Pickup Info */}
 
         {item?.status !== 'Cancel' && (
-  <>
-        
-        <View style={{marginTop: mvs(10)}}>
-          <Row style={styles.infoRow}>
-            {/* <Image
-              source={IMG.pickupicon}
-              resizeMode="contain"
-              style={styles.infoIcon}
-            /> */}
-
-             <IMG.pickupiconSvg width={mvs(30)} height={mvs(30)} style={{marginRight:mvs(8)}} />
-            <View>
-              <Bold
-                label={'Pick Up'}
-                color={colors.primary}
-                fontSize={mvs(12)}
-              />
-              <Medium
-                label={'Warehouse: Shop #1'}
-                color={colors.black}
-                fontSize={mvs(15)}
-              />
+          <>
+            <View style={{marginTop: mvs(10)}}>
+              <Row style={styles.infoRow}>
+                <Image
+                  source={IMG.pickupicon}
+                  resizeMode="contain"
+                  style={styles.infoIcon}
+                />
+                <View>
+                  <Bold
+                    label={'Pick Up'}
+                    color={colors.primary}
+                    fontSize={mvs(12)}
+                  />
+                  <Medium
+                    label={'Warehouse: Shop #1'}
+                    color={colors.black}
+                    fontSize={mvs(15)}
+                  />
+                </View>
+              </Row>
             </View>
-          </Row>
-        </View>
 
-
-        {/* <Image
-          source={IMG.orderline}
-          resizeMode="contain"
-          style={styles.separatorLine}
-        /> */}
-  <IMG.orderLineSvg width={mvs(20)} height={mvs(20)}  />
-
-        <View style={{marginTop: mvs(10)}}>
-          <Row style={styles.infoRow}>
-            {/* <Image
-              source={IMG.orderLocation}
+            <Image
+              source={IMG.orderline}
               resizeMode="contain"
-              style={styles.infoIcon}
-            /> */}
+              style={styles.separatorLine}
+            />
 
-              <IMG.orderlocationSvg width={mvs(30)} height={mvs(30)} style={{marginRight:mvs(8)}} />
-            <View>
-              <Bold
-                label={'Drop Off'}
-                color={colors.primary}
-                fontSize={mvs(12)}
-              />
-              <Medium
-                label={'Customer: Ahmed'}
-                color={colors.black}
-                fontSize={mvs(15)}
-              />
+            <View style={{marginTop: mvs(10)}}>
+              <Row style={styles.infoRow}>
+                <Image
+                  source={IMG.orderLocation}
+                  resizeMode="contain"
+                  style={styles.infoIcon}
+                />
+                <View>
+                  <Bold
+                    label={'Drop Off'}
+                    color={colors.primary}
+                    fontSize={mvs(12)}
+                  />
+                  <Medium
+                    label={'Customer: Ahmed'}
+                    color={colors.black}
+                    fontSize={mvs(15)}
+                  />
+                </View>
+              </Row>
             </View>
-          </Row>
-        </View>
-        </>
+          </>
         )}
 
- {item.status === 'delivered' && (
-        <Row style={{marginVertical:mvs(10)}}>
-         
-          <TouchableOpacity
-            onPress={openBottomSheet}
-            style={{
-              alignItems: 'center',
-              justifyContent:"center",
-              borderWidth: 1,
-              borderColor: colors.primary,
-              borderRadius: mvs(40),
-              paddingHorizontal: mvs(12),
-              paddingVertical: mvs(4),
-              marginRight: mvs(8),
-              height: mvs(50),
-              backgroundColor: colors.white,
-              width:"100%"
-            }}>
-            <Medium
-              style={{fontWeight: '500',alignItems:"center"}}
-              fontSize={mvs(16)}
-              color={colors.primary}
-              label={'Rate Your Delivery Expense'}
-            />
-          </TouchableOpacity>
-        </Row>
- )}
- {item.status === 'Cancel' && (
-  <Row style={{marginVertical: mvs(10)}}>
-    <TouchableOpacity
-      style={{
-        alignItems: 'center',
-        justifyContent: "center",
-        borderWidth: 1,
-        borderColor: colors.red,
-        borderRadius: mvs(40),
-        paddingHorizontal: mvs(12),
-        paddingVertical: mvs(4),
-        height: mvs(50),
-        backgroundColor: colors.white,
-        width: "100%"
-      }}
-      onPress={() => {navigate('TrackingDetailsScreen',{orderStatus:item?.status})}}
-      >
-      <Medium
-        style={{fontWeight: '500', textAlign: "center"}}
-        fontSize={mvs(16)}
-        color={colors.red}
-        label={'Contact Support'}
-      />
-    </TouchableOpacity>
-  </Row>
-)}
-
-       
+        {item.status === 'delivered' && (
+          <Row style={{marginVertical: mvs(10)}}>
+            <TouchableOpacity
+              onPress={openBottomSheet}
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderWidth: 1,
+                borderColor: colors.primary,
+                borderRadius: mvs(40),
+                paddingHorizontal: mvs(12),
+                paddingVertical: mvs(4),
+                marginRight: mvs(8),
+                height: mvs(50),
+                backgroundColor: colors.white,
+                width: '100%',
+              }}>
+              <Medium
+                style={{fontWeight: '500', alignItems: 'center'}}
+                fontSize={mvs(16)}
+                color={colors.primary}
+                label={'Rate Your Delivery Expense'}
+              />
+            </TouchableOpacity>
+          </Row>
+        )}
+        {item.status === 'Cancel' && (
+          <Row style={{marginVertical: mvs(10)}}>
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderWidth: 1,
+                borderColor: colors.red,
+                borderRadius: mvs(40),
+                paddingHorizontal: mvs(12),
+                paddingVertical: mvs(4),
+                height: mvs(50),
+                backgroundColor: colors.white,
+                width: '100%',
+              }}
+              onPress={() => {
+                navigate('TrackingDetailsScreen', {orderStatus: item?.status});
+              }}>
+              <Medium
+                style={{fontWeight: '500', textAlign: 'center'}}
+                fontSize={mvs(16)}
+                color={colors.red}
+                label={'Contact Support'}
+              />
+            </TouchableOpacity>
+          </Row>
+        )}
       </TouchableOpacity>
     );
   };
 
   return (
     <View style={{flex: 1, backgroundColor: colors.primary}}>
-        <StatusBar
-              translucent={false}
-              backgroundColor={colors.primary}
-              barStyle={'white-content'}
+      <StatusBar
+        translucent={false}
+        backgroundColor={colors.primary}
+        barStyle={'white-content'}
+      />
+      {/* HEADER */}
+      <View style={{paddingHorizontal: mvs(10)}}>
+        <Row style={styles.headerRow}>
+          <Row style={{justifyContent: 'flex-start', alignItems: 'center'}}>
+            <Image
+              source={IMG.homeuser}
+              style={{height: mvs(35), width: mvs(35)}}
+              resizeMode="contain"
             />
-        {/* HEADER */}
-        <View style={{paddingHorizontal: mvs(10)}}>
-          <Row style={styles.headerRow}>
-            <Row style={{justifyContent:'flex-start',alignItems:"center"}}>
-               {/* <Image
-                source={IMG.homeuser}
-                style={{height: mvs(35), width: mvs(35)}}
-                resizeMode="contain"
-              /> */}
-                <IMG.homeUser width={mvs(35)} height={mvs(35)} />
-            <View style={{marginLeft:mvs(10)}}>
+            <View style={{marginLeft: mvs(10)}}>
               <Bold
                 label={'Hi, David James'}
                 fontSize={mvs(16)}
@@ -394,196 +388,92 @@ const HomeTab = () => {
                 color={colors.white}
               />
             </View>
-            </Row>
-            <TouchableOpacity
+          </Row>
+          <TouchableOpacity
             onPress={() => navigate('Notifications')}
             //  style={styles.notificationBtn}
-             >
-              {/* <Image
-                source={IMG.customerNotification}
-                style={{height: mvs(35), width: mvs(35)}}
-                resizeMode="contain"
-              /> */}
-              <IMG.NotificationNew width={mvs(35)} height={mvs(35)} />
-            </TouchableOpacity>
-          </Row>
+          >
+            <Image
+              source={IMG.customerNotification}
+              style={{height: mvs(35), width: mvs(35)}}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        </Row>
 
-          {/* LOCATION CARD */}
-           <View style={styles.searchRow}>
-                  <View style={styles.searchBox}>
-                    <Ionicons name="search" size={18} color="#bbb" style={{ marginLeft: 10 }} />
-                    <TextInput
-                      placeholder="Tracking Number"
-                      placeholderTextColor="#bbb"
-                      style={styles.input}
-                    />
-                  </View>
-          
-                  <View style={styles.scanButton}>
-                    {/* <Ionicons name="scan-outline" size={20} color="#FF6E40" /> */}
-                     <TouchableOpacity
+        {/* LOCATION CARD */}
+        <View style={styles.searchRow}>
+          <View style={styles.searchBox}>
+            <Ionicons
+              name="search"
+              size={18}
+              color="#bbb"
+              style={{marginLeft: 10}}
+            />
+            <TextInput
+              placeholder="Tracking Number"
+              placeholderTextColor="#bbb"
+              style={styles.input}
+            />
+          </View>
+
+          <View style={styles.scanButton}>
+            {/* <Ionicons name="scan-outline" size={20} color="#FF6E40" /> */}
+            <TouchableOpacity
             //  style={styles.notificationBtn}
-             >
-              {/* <Image
+            >
+              <Image
                 source={IMG.customerScan}
                 style={{height: mvs(50), width: mvs(50)}}
                 resizeMode="contain"
-              /> */}
-
-                <IMG.QRNew width={mvs(50)} height={mvs(50)} />
+              />
             </TouchableOpacity>
-                  </View>
-                </View>
+          </View>
         </View>
+      </View>
 
-        {/* WHITE SECTION */}
-        <View style={styles.whiteSection}>
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+      {/* WHITE SECTION */}
+      <View style={styles.whiteSection}>
+        <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <Bold
             fontSize={mvs(15)}
             color={colors.black}
             label={'Current Shipping'}
             style={{marginVertical: mvs(10)}}
           />
-
-         
-          <FlatList
-            data={orders}
-            renderItem={renderOrderItem}
-            keyExtractor={(item, index) => index.toString()}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{paddingBottom: mvs(100)}}
-            ListEmptyComponent={
-              <View style={{alignItems: 'center', marginTop: mvs(50)}}>
-                <Medium
-                  label="No Orders Found"
-                  color={colors.subteXTcOLOR}
-                  fontSize={mvs(15)}
-                />
-              </View>
-            }
-          />
-      </ScrollView>
-        </View>
-
-      {/* Driver Review Bottom Sheet */}
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={-1}
-        snapPoints={snapPoints}
-        enablePanDownToClose={true}
-        backdropComponent={renderBackdrop}
-        backgroundStyle={{
-          backgroundColor: colors.white,
-          borderTopLeftRadius: mvs(25),
-          borderTopRightRadius: mvs(25),
-        }}
-        // handleIndicatorStyle={{
-        //   backgroundColor: colors.subteXTcOLOR,
-        //   width: mvs(40),
-        // }}
-        >
-        <BottomSheetScrollView
-          contentContainerStyle={styles.bottomSheetContent}
-          showsVerticalScrollIndicator={false}>
-          {/* Header */}
-          <Row style={styles.bottomSheetHeader}>
+          <View
+            style={{
+              // alignSelf: 'center',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop:mvs(100)
+            }}>
+            <IMG.withoutsign width="100%" height={mvs(120)} />
             <Medium
-              label="Driver Review"
-              fontSize={mvs(15)}
-              color={colors.black}
-            />
-            <TouchableOpacity onPress={closeBottomSheet}>
-              <Ionicons name="close" size={mvs(24)} color={colors.subteXTcOLOR} />
-            </TouchableOpacity>
-          </Row>
-
-          {/* Driver Profile */}
-          <View style={styles.driverProfileContainer}>
-            <Image
-              source={IMG.profilepic}
-              style={styles.driverProfileImage}
-              resizeMode="cover"
-            />
-            <Medium
-              label="How was your rider with Ahmed"
-              fontSize={mvs(14)}
               color={colors.subteXTcOLOR}
-              style={styles.driverQuestion}
+              fontSize={mvs(14)}
+              numberOfLines={2}
+              label={
+                'Sign in to view your current parcel status,recieve real-time updates, and access your deliverry history,'
+              }
+            />
+            <PrimaryButton
+              containerStyle={{
+                borderRadius: mvs(50),
+                height: mvs(40),
+                width: '80%',
+                marginTop: mvs(20),
+              }}
+              title={'Sign In'}
             />
           </View>
-
-          {/* Star Rating */}
-          <View style={styles.starRatingContainer}>
-            {[0, 1, 2, 3, 4].map((index) => {
-              const isFilled = index < rating;
-              return (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => handleStarPress(index)}
-                  style={styles.starButton}>
-                  <Image
-                    source={isFilled ? IMG.customerfilledStar : IMG.customerunfilledStar}
-                    style={styles.starImage}
-                    resizeMode="contain"
-                  />
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-
-          {/* Feedback Tags */}
-          <View style={styles.tagsContainer}>
-            {feedbackTags.map((tag, index) => {
-              const isSelected = selectedTags.includes(tag);
-              return (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => handleTagPress(tag)}
-                  style={[
-                    styles.feedbackTag,
-                    isSelected && styles.feedbackTagSelected,
-                  ]}>
-                  <Medium
-                    label={tag}
-                    fontSize={mvs(13)}
-                    color={isSelected ? colors.white : colors.primary}
-                  />
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-
-          {/* Comment Input */}
-          <View style={styles.commentContainer}>
-            <TextInput
-              placeholder="Write something"
-              placeholderTextColor={colors.subteXTcOLOR}
-              value={comment}
-              onChangeText={setComment}
-              multiline
-              numberOfLines={4}
-              style={styles.commentInput}
-            />
-          </View>
-
-          {/* Done Button */}
-          <TouchableOpacity
-            onPress={handleDone}
-            style={styles.doneButton}>
-            <Medium
-              label="Done"
-              fontSize={mvs(16)}
-              color={colors.white}
-            />
-          </TouchableOpacity>
-        </BottomSheetScrollView>
-      </BottomSheet>
+        </ScrollView>
+      </View>
     </View>
   );
 };
 
-export default HomeTab;
+export default TrackOrderTab;
 
 const styles = StyleSheet.create({
   headerRow: {
@@ -677,7 +567,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingVertical: mvs(4),
   },
-    searchRow: {
+  searchRow: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 25,
@@ -779,7 +669,7 @@ const styles = StyleSheet.create({
   },
   commentInput: {
     borderWidth: 1,
-    borderColor:"#DDDDDD",
+    borderColor: '#DDDDDD',
     borderRadius: mvs(12),
     paddingHorizontal: mvs(15),
     paddingVertical: mvs(12),
@@ -787,7 +677,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
     fontSize: mvs(14),
     color: colors.black,
-    backgroundColor:"#F9FAFB",
+    backgroundColor: '#F9FAFB',
   },
   doneButton: {
     backgroundColor: colors.primary,

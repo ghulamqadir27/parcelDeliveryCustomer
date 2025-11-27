@@ -105,9 +105,11 @@ const GetStartedScreen = props => {
             title={'Sign Up'}
             textStyle={styles.buttonText2}
           />
-          {/* <TouchableOpacity
-            onPress={() => navigate('HomeScreen')}
-          > */}
+          <TouchableOpacity
+            // onPress={() => navigate('TrackOrderTab')}
+            onPress={()=>navigate('TrackOrderTab', { from: 'Home' })
+}
+          >
             <Bold
               label={'Track Parcel Now'}
               color={colors.white}
@@ -119,7 +121,7 @@ const GetStartedScreen = props => {
                 textAlign: 'center'
               }}
             />
-            {/* </TouchableOpacity> */}
+            </TouchableOpacity>
         </View>
       </ScrollView>
     </View>

@@ -116,11 +116,13 @@ const HelpCenterScreen = () => {
         <TouchableOpacity 
         // onPress={goBack}
          style={styles.backButton}>
-           <Image
+           {/* <Image
                           source={IMG.customerLocation}
                           style={{height: mvs(35), width: mvs(35)}}
                           resizeMode="contain"
-                        />
+                        /> */}
+
+                          <IMG.supportLocation width={mvs(35)} height={mvs(35)} />
           {/* <Icon name="chevron-back" size={mvs(30)} color={colors.white} /> */}
         </TouchableOpacity>
         <Medium
@@ -132,11 +134,13 @@ const HelpCenterScreen = () => {
          <TouchableOpacity
                     //  style={styles.notificationBtn}
                      >
-                      <Image
+                      {/* <Image
                         source={IMG.customerNotification}
                         style={{height: mvs(35), width: mvs(35)}}
                         resizeMode="contain"
-                      />
+                      /> */}
+
+                        <IMG.NotificationNew width={mvs(35)} height={mvs(35)} />
                     </TouchableOpacity>
 
 

@@ -79,6 +79,7 @@ import DriverUpdateWorkPermitScreen from 'screens/driverUpdate-WorkPermit';
 import DriverUpdateVehicleImageScreen from 'screens/driverUpdate-VehicleImage';
 import SignUpAuthenticationCodeScreen from 'screens/signup-authentication-code';
 import TrackingDetailsScreen from 'screens/tracking-details-screen';
+import TrackOrderTab from 'screens/track-order-tab';
 
 
 const Stack = createNativeStackNavigator();
@@ -96,13 +97,14 @@ export const RootNavigator = () => {
         //  initialRouteName="DriverRegistrationPart7Screen"
         //  initialRouteName="HelpCenterScreen"
         //  initialRouteName="QRScreen"
-        //  initialRouteName="Splash"
+         initialRouteName="Splash"
         // initialRouteName="GetStarted"
-       initialRouteName="Drawer" 
+      //  initialRouteName="Drawer" 
         screenOptions={horizontalAnimation}>
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="UserTab" component={UserTab} />
+          <Stack.Screen name="TrackOrderTab" component={TrackOrderTab} />
           <Stack.Screen name="Onboarding" component={Onboarding} />
            <Stack.Screen name="GetStarted" component={GetStartedScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />

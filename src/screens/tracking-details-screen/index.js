@@ -79,11 +79,13 @@ const timelineData = orderStatus === "dispatched"
 
         <View>
           <Row style={styles.infoRow}>
-            <Image
+            {/* <Image
               source={IMG.pickupicon}
               resizeMode="contain"
               style={styles.infoIcon}
-            />
+            /> */}
+
+              <IMG.pickupiconSvg width={mvs(30)} height={mvs(30)} style={{marginRight:mvs(8)}} />
             <View>
               <Bold
                 label={'Pick Up'}
@@ -100,20 +102,24 @@ const timelineData = orderStatus === "dispatched"
         </View>
 
         {/* Separator Line */}
-        <Image
+        {/* <Image
           source={IMG.orderline}
           resizeMode="contain"
           style={styles.separatorLine}
-        />
+        /> */}
+
+          <IMG.orderLineSvg width={mvs(25)} height={mvs(25)}  />
 
         {/* Delivery Info */}
         <View style={{ marginTop: mvs(10) }}>
           <Row style={styles.infoRow}>
-            <Image
+            {/* <Image
               source={IMG.orderLocation}
               resizeMode="contain"
               style={styles.infoIcon}
-            />
+            /> */}
+
+              <IMG.orderlocationSvg width={mvs(30)} height={mvs(30)} style={{marginRight:mvs(8)}} />
             <View>
               <Bold
                 label={'Your Location'}
@@ -185,11 +191,13 @@ const timelineData = orderStatus === "dispatched"
               }}
               >
               {item.status === 'completed' ? (
-                <Image
-                  source={IMG.checkorder}
-                  style={{height: mvs(20), width: mvs(20)}}
-                  resizeMode="contain"
-                />
+                // <Image
+                //   source={IMG.checkorder}
+                //   style={{height: mvs(20), width: mvs(20)}}
+                //   resizeMode="contain"
+                // />
+
+                  <IMG.checkorderSvg width={mvs(20)} height={mvs(20)}/>
               ) : (
                   item?.status === "partialdelivered" ? (
                 
